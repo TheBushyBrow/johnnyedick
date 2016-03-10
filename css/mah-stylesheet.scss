@@ -1,0 +1,250 @@
+//imports
+@import 'variables';
+@import 'mixins';
+
+//helper classes
+.font-smoothing {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+html {
+  font-size: 62.5%; /* Sets up the Base 10 stuff */
+}
+body {
+	padding-top: 70px;
+	font-family: $font-stack;
+	color: $primary-color;
+}
+//bootstrap header
+.navbar-header {
+	height: 80px;
+	background-color: white;
+}
+
+.nav-toggle {
+	margin-top:15px !important;
+}
+
+nav {
+	background: #f5b335;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    transition: top 0.2s ease-in-out;
+    width: 100%;
+	font-size: $font-base;
+	
+	.nav-bar {
+		background-color: rgba(255, 255, 255, 0);
+	}
+	.nav-brand {
+		height: auto;
+		display: block;
+	}
+	.nav-head {
+		max-height: 50px;
+	}
+	.myname {
+		display: inline-block;
+		position: absolute;
+		left: -120px;
+		top: 30px;
+		z-index: -11111;
+	}
+}
+// we'll add this class using javascript
+.nav-up {
+  top: -80px; // same as header height. use variables in LESS/SASS
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	@include transition(color .3s ease); 
+	
+	&:hover {
+		color: darken( $gold, 10% );
+	}
+}
+
+ul.nav.navbar-nav.navbar-right {
+    padding-top: 15px;
+    padding-right: 15px;
+}
+
+.navbar {
+	background-color: white;
+	border: 0;
+}
+
+section {
+	&.hello,&.work {
+		max-width: 500px;
+		margin: 0 auto;
+		padding: 45px 0;
+	}
+	
+	&.enjoys {
+		margin: 0 auto;
+		padding: 45px 0;
+	}
+}
+
+hr {
+	border: dashed 2px #DDD;
+	width: 50px;
+}
+#major {
+	h3 {
+		font-size: $font-major;
+		text-transform: uppercase;
+		font-weight: bold;
+		
+		&.small {
+			font-size: 60px;
+		}
+	}
+	h4.small {
+		font-size: $font-major-sub;
+		text-transform: uppercase;
+		font-weight: bold;
+		color: $gold;
+		@include transition(color .3s ease); 
+		
+		&:hover {
+			color: darken( $gold, 10% );
+		}
+	}
+}
+.container-head {
+	height: 250px;
+	width: 250px;
+	margin: 0 auto;
+	
+	.head-ill {
+		max-height: 100%;
+	}
+}
+
+.headline {
+	h4 {
+		font-size: $font-minor;
+		padding: 20px 0;
+
+	}
+	.blurb {
+		font-size: $font-minor-sub;
+		font-weight: 300;
+		color: $grey;
+		margin-bottom: 50px;
+		
+		.blurb-title {
+			font-weight: bold;
+			font-size: 22px;
+		}
+		.label {
+			padding: 8px ;
+			margin-right: 5px;
+			line-height: 40px;
+			
+			&.label-gold {
+				background-color: lighten( $gold, 10% );
+				
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////
+// WORKS PAGE
+/////////////////////////////////////////////
+.card {
+	box-shadow : 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	
+	.thumb-box {
+		display  : inline-block !important;
+		position : relative !important; 
+		overflow : hidden;
+		height   : 200px;
+		@include transition(all .3s ease); 
+		// margin-bottom:30px;
+		
+		img {
+			max-width : 100% !important;
+			overflow  : hidden;
+		}
+		
+		a{
+			color : transparent;
+			@include transition(all .3s ease); 
+			
+			&:hover .thumb-box-overlay {
+				visibility       : visible;
+				opacity          : 1;
+				transition-delay : 0s;
+				text-align       : center;
+				position         : absolute;
+				background-color : rgba(34, 34, 34, 0.50);
+				color            : #fff;
+				width            : 100%;
+				height           : 100%;
+				text-shadow      : 0 1px 2px rgba(0, 0, 0, .6);
+				@include transition(all .3s ease); 
+			}
+		}
+		
+		.thumb-box-overlay {
+			visibility : hidden;
+			opacity    : 0;
+			@include transition(all .3s ease); 
+			
+			span {
+				margin    : auto;
+				position  : absolute;
+				top       : 80px; left: 0; bottom: 0; right: 0;
+				font-size : 24px;
+			}
+		}
+	}
+
+	.thumb-title {
+		font-size: 16px;
+		font-size: 16px;
+		padding: 15px 0;
+		border-top: 1px solid #ddd;
+		margin-bottom: 30px;
+	}
+}
+
+	
+footer {
+	background: lighten( $gold, 10% );
+	padding: 3em 0;
+	text-align: center;
+	color: white;
+	
+	.social-list{
+		overflow: hidden;
+		margin: 0 auto;
+		max-width: 600px;
+		padding: 0;
+		font-size: $font-minor-sub;
+		
+		li {
+			width: 50%;
+			padding-top: 1em;
+			padding-bottom: 1em;
+			display: block;
+			float: left;
+			
+			
+		}
+	}
+	
+	p {
+		font-size: 1em;
+		font-weight: 400;
+		margin: 0;
+		padding: 2.5em 0 0;
+	}
+}
